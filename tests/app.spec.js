@@ -1,13 +1,27 @@
 var expect = require('chai').expect;
 var app = require('../app/app');
 
-    it ('find number', function () {
-        expect(app.findMin([5,4,6,8,-1])).to.eql(-1)
-
-    } );
-
-    it ('find character', function () {
-        expect(app.findMin([5,4,6, 's',-1])).to.eql(false)
-
-    } );
-
+describe('find minimum of array', function ()
+{
+    describe('when array is not empty and data are correct', function ()
+    {
+        it('should return correct value', function ()
+        {
+            expect(app.findMin([1, 2, 3, 4, -5 ])).to.eql(-5);
+        });
+    });
+    describe('when parameters are incorrect', function ()
+    {
+        it('should return false', function ()
+        {
+            expect(app.findMin(['ala', 'ma', 'kota'])).to.eql(false);
+        });
+    });
+    describe('when empty parameters', function ()
+    {
+        it('should return false', function ()
+        {
+            expect(app.findMin([])).to.eql(false);
+        });
+    });
+});
